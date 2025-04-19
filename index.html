@@ -1185,7 +1185,7 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
-  <script>
+  <!-- <script>
   $(document).ready(function () {
   $('#contactForm').on('submit', function (e) {
     e.preventDefault();
@@ -1231,7 +1231,54 @@
   });
 });
 
-  </script>
+  </script> -->
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+    
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+    
+      if (!name || !email || !message) {
+        document.getElementById('response').innerHTML = '<div style="color: red;">All fields are required.</div>';
+        return;
+      }
+    
+      document.getElementById('sendBtn').style.display = 'none';
+      document.getElementById('sendingText').style.display = 'inline';
+    
+      const formData = new URLSearchParams();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
+    
+      fetch('https://script.google.com/macros/s/AKfycbwQv4L3GS-yESCRdnbpNi9mm2O65s8hmVr4waxRpmrAAN0XWqbW13F4Q-sQ9SAQiUFWAQ/exec', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.text())
+      .then(responseText => {
+        document.getElementById('sendingText').style.display = 'none';
+        document.getElementById('sendBtn').style.display = 'inline';
+    
+        if (responseText === 'Success') {
+          document.getElementById('response').innerHTML = '<div style="color: greenyellow;">Your message has been sent and stored in the sheet!</div>';
+          document.getElementById('contactForm').reset();
+        } else {
+          document.getElementById('response').innerHTML = '<div style="color: red;">Failed to submit. Try again.</div>';
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        document.getElementById('sendingText').style.display = 'none';
+        document.getElementById('sendBtn').style.display = 'inline';
+        document.getElementById('response').innerHTML = '<div style="color: red;">Something went wrong.</div>';
+      });
+    });
+    </script>
+    
 
   <!--
     - custom js link
