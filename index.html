@@ -769,10 +769,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                  <img src="./assets/images/project-1.jpg" alt="crptm" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Finance</h3>
+                <h3 class="project-title">CRPTM</h3>
 
                 <p class="project-category">Web development</p>
 
@@ -787,10 +787,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                  <img src="./assets/images/project-2.png" alt="epas" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Orizon</h3>
+                <h3 class="project-title">EPAS</h3>
 
                 <p class="project-category">Web development</p>
 
@@ -805,10 +805,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                  <img src="./assets/images/project-4.png" alt="lets build" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Fundo</h3>
+                <h3 class="project-title">Let's Build</h3>
 
                 <p class="project-category">Mobile responsive</p>
 
@@ -823,10 +823,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                  <img src="./assets/images/project-7.png" alt="terralogic" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Brawlhalla</h3>
+                <h3 class="project-title">Terralogic </h3>
 
                 <p class="project-category">WordPress development</p>
 
@@ -841,10 +841,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                  <img src="./assets/images/project-8.jpg" alt="saburi." loading="lazy">
                 </figure>
 
-                <h3 class="project-title">DSM.</h3>
+                <h3 class="project-title">Saburi</h3>
 
                 <p class="project-category">Mobile responsive</p>
 
@@ -859,10 +859,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                  <img src="./assets/images/project-6.png" alt="mr ceo" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">MetaSpark</h3>
+                <h3 class="project-title">Mr Ceo</h3>
 
                 <p class="project-category">Mobile responsive</p>
 
@@ -877,10 +877,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                  <img src="./assets/images/project-3.jpg" alt="terralogic academy" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Summary</h3>
+                <h3 class="project-title">Terralogic Academy</h3>
 
                 <p class="project-category">Web development</p>
 
@@ -895,10 +895,10 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                  <img src="./assets/images/project-5.png" alt="lollypop" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Task Manager</h3>
+                <h3 class="project-title">Lollypop</h3>
 
                 <p class="project-category">WordPress development</p>
 
@@ -1234,49 +1234,57 @@
   </script> -->
 
   <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-    
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-    
-      if (!name || !email || !message) {
-        document.getElementById('response').innerHTML = '<div style="color: red;">All fields are required.</div>';
-        return;
-      }
-    
-      document.getElementById('sendBtn').style.display = 'none';
-      document.getElementById('sendingText').style.display = 'inline';
-    
-      const formData = new URLSearchParams();
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('message', message);
-    
-      fetch('https://script.google.com/macros/s/AKfycbwQv4L3GS-yESCRdnbpNi9mm2O65s8hmVr4waxRpmrAAN0XWqbW13F4Q-sQ9SAQiUFWAQ/exec', {
-        method: 'POST',
-        body: formData,
-      })
-      .then(response => response.text())
-      .then(responseText => {
-        document.getElementById('sendingText').style.display = 'none';
-        document.getElementById('sendBtn').style.display = 'inline';
-    
-        if (responseText === 'Success') {
-          document.getElementById('response').innerHTML = '<div style="color: greenyellow;">Your message has been sent and stored in the sheet!</div>';
-          document.getElementById('contactForm').reset();
-        } else {
-          document.getElementById('response').innerHTML = '<div style="color: red;">Failed to submit. Try again.</div>';
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('sendingText').style.display = 'none';
-        document.getElementById('sendBtn').style.display = 'inline';
-        document.getElementById('response').innerHTML = '<div style="color: red;">Something went wrong.</div>';
-      });
-    });
+   document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !email || !message) {
+    document.getElementById('response').innerHTML = '<div style="color: red;">All fields are required.</div>';
+    return;
+  }
+
+  const sendBtn = document.getElementById('sendBtn');
+  const sendingText = document.getElementById('sendingText');
+
+  // Keep button visible, just disable it
+  sendBtn.disabled = true;
+  sendBtn.style.opacity = '0.5'; // Optional: make it look disabled
+  sendingText.style.display = 'inline';
+
+  const formData = new URLSearchParams();
+  formData.append('name', name);
+  formData.append('email', email);
+  formData.append('message', message);
+
+  fetch('https://script.google.com/macros/s/AKfycbwQv4L3GS-yESCRdnbpNi9mm2O65s8hmVr4waxRpmrAAN0XWqbW13F4Q-sQ9SAQiUFWAQ/exec', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.text())
+  .then(responseText => {
+    sendBtn.disabled = false;
+    sendBtn.style.opacity = '1';
+    sendingText.style.display = 'none';
+
+    if (responseText === 'Success') {
+      document.getElementById('response').innerHTML = '<div style="color: greenyellow;">Thanks for Contacting me, will get back to you soon!</div>';
+      document.getElementById('contactForm').reset();
+    } else {
+      document.getElementById('response').innerHTML = '<div style="color: red;">Failed to submit. Try again.</div>';
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    sendBtn.disabled = false;
+    sendBtn.style.opacity = '1';
+    sendingText.style.display = 'none';
+    document.getElementById('response').innerHTML = '<div style="color: red;">Something went wrong.</div>';
+  });
+});
+
     </script>
     
 
